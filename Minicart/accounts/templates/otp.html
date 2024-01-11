@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block style %}
+        /* Hide the number input arrows */
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        input[type="number"] {
+            -moz-appearance: textfield;
+        }
+        .input {
+            padding: 0.375rem 0.75rem; /* Adjust padding to make the button smaller */
+            font-size: 0.875rem; /* Adjust font size to make the button smaller */
+        }
+    {% endblock style %}
+<style>
+        /* Hide the number input arrows */
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        input[type="number"] {
+            -moz-appearance: textfield;
+        }
+    </style>
+
+{% block content %}    
+        <div class="container center">
+            <!-- Registration Form -->
+            <form method="post">
+                {% csrf_token %}
+                {% if message %}
+                <div class="alert alert-{{class}}">{{message}}</div>
+
+                {% endif %}
+                <h2 class="mb-3">Enter the otp send to {{mobile}}</h2>
+                <div class="mb-3">
+                    <label for="otp" class="form-label">Full Name</label>
+                    <input type="number" class="form-control" id="otp" required>
+                </div>
+                <button type="submit" class="btn btn-success">Proceed</button>
+            </form>
+        </div>
+</div>
+{% endblock content %}
